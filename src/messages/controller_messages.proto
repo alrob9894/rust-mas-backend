@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+message ReqRegisterAgent{
+    uint32 sender_id = 1;
+
+    enum SenderType {
+        AUTHORITY_AGENT = 0;
+        SIMULATION_AGENT = 1;
+        STATISTIC_AGENT = 2;
+    }
+
+    SenderType sender_type = 2;
+
+    enum Action {
+        REGISTER = 0;
+        SING_OUT = 1;
+    }
+
+    Action action = 3;
+}
