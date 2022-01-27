@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-message ReqRegisterAgent{
+message ReqRegisterAgent {
     uint32 sender_id = 1;
 
     enum SenderType {
@@ -17,4 +17,39 @@ message ReqRegisterAgent{
     }
 
     Action action = 3;
+}
+
+message RepRegisterAgent {
+
+}
+message ReqRoundStatus {
+    uint32 sender_id = 1;
+    uint32 finished_round = 2;
+
+    enum Status {
+        ROUND_FINISHED = 0;
+        FAILURE = 1;
+    }
+
+    Status status = 3;
+}
+
+message RepRoundStatus {
+    uint32 sender_id = 1;
+
+    enum Status {
+        CONFIRMED = 0;
+    }
+
+    Status status = 2;
+}
+
+message ControllerRound {
+    uint32 sender_id = 1;
+    uint32 round = 2;
+}
+
+message PubTerminationSignal {
+    uint32 sender_id =  1;
+    string msg = 2;
 }

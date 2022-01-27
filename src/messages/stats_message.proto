@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+enum Compartment {
+    COMPARTMENT_SUSCEPTIBLE = 0;
+    COMPARTMENT_INFECTED = 1;
+    COMPARTMENT_REMOVED = 2;
+}
+
+message StatsRequest {
+    uint32 sender_id = 1;
+    uint32 round = 2;
+    Compartment request_compartment = 3;
+}
+
+message StatsReply {
+    uint32 sender_id = 1;
+
+    enum Status {
+        SUCCESS = 0;
+        FALSE_ROUND = 1;
+        ERROR = 3;
+    }
+
+    Status status = 2;
+}
+
+message RoundResultRequest {
+    uint32 sender_id = 1;
+    uint32 requested_round = 2;
+}
+
+message RoundResultReply {
+    uint32 sender_id = 1;
+    uint32 agents_infected = 2;
+}

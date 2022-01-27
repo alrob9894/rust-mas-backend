@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+message PubRegulations{
+    uint32 sender_id = 1;
+    bool mask_mandate = 2;
+    bool social_distancing = 3;
+}
